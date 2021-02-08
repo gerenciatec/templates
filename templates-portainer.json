@@ -10,14 +10,7 @@
       "repository": {
         "url": "https://github.com/gerenciatec/templates/",
         "stackfile": "stacks/reverse-proxy/docker-compose.yml"
-      },
-      "env": [
-        {
-          "name": "DASHBOARD_AUTHENTICATION",
-          "label": "Hash utilizado para acessar o painel do Traefik.",
-          "description": "https://doc.traefik.io/traefik/middlewares/basicauth/"
-        }
-      ]
+      }
     }
   ]
 }
