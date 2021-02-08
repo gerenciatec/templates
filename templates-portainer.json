@@ -14,7 +14,7 @@
       },
       "env": [
         {
-          "name": "Dashboard Authentication",
+          "name": "DASHBOARD_AUTHENTICATION",
           "label": "Hash utilizado para acessar o painel do Traefik.",
           "description": "https://doc.traefik.io/traefik/middlewares/basicauth/"
         }
