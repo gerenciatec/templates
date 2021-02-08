@@ -7,9 +7,8 @@
       "description": "Servidor Traefik",
       "note": "Deploy do servidor WEB reverso",
       "platform": "linux",
-      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
       "repository": {
-        "url": "https://github.com/gerenciatec/templates",
+        "url": "https://github.com/gerenciatec/templates/",
         "stackfile": "stacks/reverse-proxy/docker-compose.yml"
       },
       "env": [
