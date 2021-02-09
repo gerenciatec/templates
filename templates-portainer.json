@@ -10,7 +10,19 @@
       "repository": {
         "url": "https://github.com/gerenciatec/templates/",
         "stackfile": "stacks/reverse-proxy/docker-compose.yml"
-      }
+      },
+      "env": [
+        {
+          "name": "MEGA_USERNAME",
+          "label": "Usuario mega.nz",
+          "description": "Usuario a ser usado no container do mega"
+			  },
+        {
+          "name": "MEGA_PASSWORD",
+          "label": "Senha mega.nz",
+          "description": "Senha a ser usado no container do mega"
+        }
+    ]
     }
   ]
 }
