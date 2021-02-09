@@ -15,14 +15,14 @@
         {
           "name": "MEGA_USERNAME",
           "label": "Usuario mega.nz",
-          "description": "Usuario a ser usado no container do mega"
+          "description": "Usuario a ser usado no container mega-cmd"
 			  },
         {
           "name": "MEGA_PASSWORD",
           "label": "Senha mega.nz",
-          "description": "Senha a ser usado no container do mega"
+          "description": "Senha a ser usado no container mega-cmd"
         }
-    ]
+      ]  
     }
   ]
 }

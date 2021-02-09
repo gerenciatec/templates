@@ -43,7 +43,7 @@ services:
     environment:
       TZ: "America/Sao_Paulo"
     command:
-      - "mega-login ${MEGA_USERNAME} ${MEGA_PASSWORD} mega-sync /opt/gerenciatec/docker/volumes/reverse-proxy/"
+      - "mega-login ${MEGA_USERNAME} ${MEGA_PASSWORD} mega-sync /opt/gerenciatec/docker/volumes/reverse-proxy/ /volumes/reverse-proxy"
 
 
 networks:
