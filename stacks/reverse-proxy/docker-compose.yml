@@ -2,7 +2,6 @@ version: "3"
 
 services:
   reverse-proxy:
-    # The official v2 Traefik docker image
     image: traefik:latest
     container_name: reverse-proxy
     restart: unless-stopped
@@ -18,7 +17,6 @@ services:
       - --providers.docker
       - --providers.docker.exposedbydefault=false
     volumes:
-      # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/gerenciatec/docker/volumes/reverse-proxy/:/opt/gerenciatec/docker/volumes/reverse-proxy/
     environment:
