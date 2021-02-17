@@ -3,7 +3,7 @@ version: "3"
 services:
   elastiflow-elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.8.10
-    container_name: elastiflow-elasticsearch
+    container_name: elasticsearch
     restart: unless-stopped
     ulimits:
       memlock:
@@ -17,7 +17,7 @@ services:
       #   - for production environments upto 31GB is recommended.
       ES_JAVA_OPTS: "-Xms4g -Xmx4g"
 
-      cluster.name: elastiflow
+      cluster.name: gerenciatec
 
       bootstrap.memory_lock: "true"
 
@@ -48,7 +48,7 @@ services:
       SERVER_PORT: 5601
       SERVER_MAXPAYLOADBYTES: 8388608
 
-      ELASTICSEARCH_HOSTS: "http://elastiflow-elasticsearch:9200"
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
       ELASTICSEARCH_REQUESTTIMEOUT: 132000
       ELASTICSEARCH_SHARDTIMEOUT: 120000
 
