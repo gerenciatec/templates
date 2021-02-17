@@ -43,7 +43,26 @@
           "description": "URL para acessar o Elastiflow"
 			  }
       ]
-    }    
+    },
+    
+    {
+      "type": 3,
+      "title": "Synesis",
+      "description": "Servidor Synesis",
+      "note": "Deploy do servidor de syslog",
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gerenciatec/templates/",
+        "stackfile": "stacks/synesis/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "PROXY_URL",
+          "label": "URL de Acesso",
+          "description": "URL para acessar o Synesis"
+			  }
+      ]
+    }   
 
   ]
 }
