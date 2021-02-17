@@ -24,7 +24,7 @@
           "description": "Senha a ser usado no container mega-cmd"
         }
       ]  
-    }
+    },
 
     {
       "type": 3,
@@ -44,6 +44,6 @@
 			  }
       ]
     }    
-    
+
   ]
 }
