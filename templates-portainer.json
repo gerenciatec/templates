@@ -1,6 +1,7 @@
 {
   "version": "2",
   "templates": [
+
     {
       "type": 3,
       "title": "Reverse-Proxy",
@@ -24,5 +25,25 @@
         }
       ]  
     }
+
+    {
+      "type": 3,
+      "title": "Elastiflow",
+      "description": "Servidor Elastiflow",
+      "note": "Deploy do servidor de Flows",
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gerenciatec/templates/",
+        "stackfile": "stacks/elastiflow/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "PROXY_URL",
+          "label": "URL de Acesso",
+          "description": "URL para acessar o Elastiflow"
+			  }
+      ]
+    }    
+    
   ]
 }
