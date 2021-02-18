@@ -18,7 +18,6 @@ services:
       - --providers.docker.exposedbydefault=false
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/gerenciatec/docker/volumes/reverse-proxy/:/opt/gerenciatec/docker/volumes/reverse-proxy/
     environment:
       TZ: "America/Sao_Paulo"
     labels:
@@ -27,20 +26,7 @@ services:
       - "traefik.http.services.rproxy.loadbalancer.server.port=8080"
       - "traefik.http.routers.rproxy.service=api@internal"
       - "traefik.http.routers.rproxy.middlewares=api-auth"
-      - "traefik.http.middlewares.rproxy-auth.basicauth.usersfile=/opt/gerenciatec/docker/volumes/reverse-proxy/users.conf"
-
-  mega-reverse-proxy:
-    image: hub.gerenciatec.com.br/mega-cmd:latest
-    container_name: mega-reverse-proxy
-    restart: unless-stopped
-    networks:
-      - gerenciatec-network
-    volumes:
-      - /opt/gerenciatec/docker/volumes/reverse-proxy/:/opt/gerenciatec/docker/volumes/reverse-proxy/
-    environment:
-      TZ: "America/Sao_Paulo"
-    command: "${MEGA_USERNAME} ${MEGA_PASSWORD} \
-      mega-sync /opt/gerenciatec/docker/volumes/reverse-proxy/ /volumes/reverse-proxy"
+      - "traefik.http.middlewares.rproxy-auth.basicauth.users=gtec:$$apr1$$rkiK56dj$$z4GlaHm5DRiEMGMUpNVAr1"
 
 networks:
   gerenciatec-network:
