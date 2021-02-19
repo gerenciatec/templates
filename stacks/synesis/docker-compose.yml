@@ -17,6 +17,8 @@ services:
       SERVER_HOST: 0.0.0.0
       SERVER_PORT: 5601
 
+      TZ: "America/Sao_Paulo"
+
       SERVER_BASEPATH: "/synesis"
 
       KIBANA_INDEX: ".kibana-synlite"
