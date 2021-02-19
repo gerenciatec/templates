@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.synesis.rule=Host(`${PROXY_URL}`) || PathPrefix(`/synesis`)"
       - "traefik.http.routers.synesis.middlewares=synesis-stripprefix,synesis-auth"
       - "traefik.http.middlewares.synesis-stripprefix.stripprefix.prefixes=/synesis"
-      - "traefik.http.middlewares.synesis-auth.basicauth.usersfile=/opt/gerenciatec/docker/volumes/reverse-proxy/users.conf"
+      - "traefik.http.middlewares.synesis-auth.basicauth.users=gtec:$$apr1$$Iqe9MT.2$$RaZP0TTtIcAIGNXsbohnB."
     environment:
       SERVER_HOST: 0.0.0.0
       SERVER_PORT: 5601
@@ -28,16 +28,13 @@ services:
       LOGGING_QUIET: "true"
 
   synesis-kibana-init:
-    image: synesis-kibana-init:latest
-    build: ./synesis-kibana-init/
+    image: hub.gerenciatec.com.br/synesis-kibana-init:latest
     container_name: synesis-kibana-init
     restart: "no"
     depends_on:
       - synesis-kibana
     networks:
       - gerenciatec-network
-    labels:
-      - "traefik.enable=false"
 
   synesis-logstash:
     image: robcowart/synlite-syslog-logstash-oss:1.1.0_7.0.1
@@ -47,8 +44,6 @@ services:
       - gerenciatec-network
     ports:
       - "514:51400/udp"
-    labels:
-      - "traefik.enable=false"
     environment:
       # JVM Heap size - this MUST be at least 512MB (1GB preferred)
       LS_JAVA_OPTS: "-Xms1g -Xmx1g"
@@ -99,8 +94,6 @@ services:
     restart: unless-stopped
     networks:
       - gerenciatec-network
-    labels:
-      - "traefik.enable=false"
     environment:
       FILTERTYPE_PATTERN_VALUE: "syslog-"
       FILTERTYPE_AGE_UNIT_COUNT: 30
