@@ -89,7 +89,7 @@ services:
       SYNLITE_SYSLOG_TZ: "America/Sao_Paulo"
 
   synesis-curator:
-    image: curator:latest
+    image: hub.gerenciatec.com.br/curator:latest
     container_name: synesis-curator
     restart: unless-stopped
     networks:
