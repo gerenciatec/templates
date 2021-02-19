@@ -23,7 +23,7 @@ services:
       TZ: "America/Sao_Paulo"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.rproxy.rule=PathPrefix(`/dashboard/`)"
+      - "traefik.http.routers.rproxy.rule=Host(`${PROXY_URL}`) || PathPrefix(`/api`) || PathPrefix(`/dashboard/`)"
       - "traefik.http.services.rproxy.loadbalancer.server.port=8080"
       - "traefik.http.routers.rproxy.service=api@internal"
       - "traefik.http.routers.rproxy.middlewares=rproxy-auth"

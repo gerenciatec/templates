@@ -11,7 +11,14 @@
       "repository": {
         "url": "https://github.com/gerenciatec/templates/",
         "stackfile": "stacks/reverse-proxy/docker-compose.yml"
-      }
+      },
+      "env": [
+        {
+          "name": "PROXY_URL",
+          "label": "URL de Acesso",
+          "description": "URL para acessar o Dashboard"
+			  }
+      ]      
     },
 
     {
