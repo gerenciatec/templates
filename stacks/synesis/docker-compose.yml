@@ -2,7 +2,7 @@ version: "3"
 
 services:
   synesis-kibana:
-    image: docker.elastic.co/kibana/kibana:7.5.0
+    image: docker.elastic.co/kibana/kibana-oss:7.5.0
     container_name: synesis-kibana
     restart: unless-stopped
     networks:
