@@ -4,20 +4,25 @@
 
     {
       "type": 3,
-      "title": "Reverse-Proxy",
-      "description": "Servidor Traefik",
+      "title": "Dashboard",
+      "description": "Dashboard",
       "note": "Deploy do servidor WEB reverso",
       "platform": "linux",
       "repository": {
         "url": "https://github.com/gerenciatec/templates/",
-        "stackfile": "stacks/reverse-proxy/docker-compose.yml"
+        "stackfile": "stacks/dashboard/docker-compose.yml"
       },
       "env": [
         {
-          "name": "PROXY_URL",
-          "label": "URL de Acesso",
-          "description": "URL para acessar o Dashboard"
-			  }
+          "name": "GTEC_DOMAIN",
+          "label": "Domínio local Gerenciatec",
+          "description": "Domínio local Gerenciatec"
+			  },
+        {
+          "name": "HOST_IP",
+          "label": "IP do Host",
+          "description": "IP para exposição dos externa dos serviços"
+			  }        
       ]      
     },
 

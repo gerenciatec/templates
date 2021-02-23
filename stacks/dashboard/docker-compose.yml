@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  reverse-proxy:
+    image: traefik:latest
+    container_name: reverse-proxy
+    restart: unless-stopped
+    networks:
+      - gerenciatec-network
+    ports:
+      - 80:80
+      - 443:443
+    command:
+      - --api.dashboard=true
+      - --api.insecure=true
+      - --entryPoints.web.address=:80
+      - --entryPoints.websecure.address=:443
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
+      - --certificatesresolvers.myresolver.acme.email=suporte@gerenciatec.com.br
+      - --certificatesresolvers.myresolver.acme.storage=acme.json
+      - --certificatesresolvers.myresolver.acme.dnschallenge=true
+      - --certificatesresolvers.myresolver.acme.dnschallenge.provider=pdns
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/gerenciatec/docker/volumes/traefik/acme.json:/acme.json
+    environment:
+      TZ: "America/Sao_Paulo"
+      PDNS_API_URL: "http://powerdns:8081/"
+      PDNS_API_KEY: "paDUbL8t4ytpp2Kx4t550eN4"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rproxy.rule=Host(`dash.${GTEC_DOMAIN}`) || PathPrefix(`/api`) || PathPrefix(`/dash/`)"
+      - "traefik.http.routers.rproxy.tls=true"
+      - "traefik.http.routers.rproxy.tls.certresolver=myresolver"
+      - "traefik.http.services.rproxy.loadbalancer.server.port=8080"
+      - "traefik.http.routers.rproxy.service=api@internal"
+      - "traefik.http.routers.rproxy.middlewares=rproxy-auth"
+      - "traefik.http.middlewares.rproxy-auth.basicauth.users=gtec:$$apr1$$rkiK56dj$$z4GlaHm5DRiEMGMUpNVAr1"
+
+  powerdns:
+    image: hub.gerenciatec.com.br/powerdns:latest
+    container_name: powerdns
+    restart: unless-stopped
+    networks:
+      - gerenciatec-network
+    ports:
+      - "${HOST_IP}:53:53/udp"
+      - "${HOST_IP}:53:53/tcp"
+    environment:
+      GTEC_DOMAIN: "${GTEC_DOMAIN}"
+      HOST_IP: "${HOST_IP}"
+
+networks:
+  gerenciatec-network:
+    external: true
