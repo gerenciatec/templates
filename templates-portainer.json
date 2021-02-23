@@ -14,8 +14,8 @@
       },
       "env": [
         {
-          "name": "GTEC_DELEGATED_DOMAIN",
-          "label": "Domínio delegado Gerenciatec",
+          "name": "LOCAL_DOMAIN",
+          "label": "Domínio delegado",
           "description": ""
 			  },
         {

@@ -30,7 +30,7 @@ services:
       PDNS_API_KEY: "paDUbL8t4ytpp2Kx4t550eN4"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.webproxy.rule=Host(`webproxy.${GTEC_DELEGATED_DOMAIN}`) || PathPrefix(`/api`) || PathPrefix(`/webproxy/`)"
+      - "traefik.http.routers.webproxy.rule=Host(`webproxy.${LOCAL_DOMAIN}`) || PathPrefix(`/api`) || PathPrefix(`/webproxy/`)"
       - "traefik.http.routers.webproxy.tls=true"
       - "traefik.http.routers.webproxy.tls.certresolver=myresolver"
       - "traefik.http.services.webproxy.loadbalancer.server.port=8080"
@@ -48,7 +48,7 @@ services:
       - "${HOST_IP}:53:53/udp"
       - "${HOST_IP}:53:53/tcp"
     environment:
-      GTEC_DELEGATED_DOMAIN: "${GTEC_DELEGATED_DOMAIN}"
+      LOCAL_DOMAIN: "${LOCAL_DOMAIN}"
       GTEC_HOST_DOMAIN: "${GTEC_HOST_DOMAIN}"
       HOST_IP: "${HOST_IP}"
 
