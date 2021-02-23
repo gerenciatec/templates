@@ -52,7 +52,7 @@
     
     {
       "type": 3,
-      "title": "synesis",
+      "title": "syslog",
       "description": "Servidor Synesis",
       "note": "Deploy do servidor de syslog",
       "platform": "linux",
@@ -62,9 +62,9 @@
       },
       "env": [
         {
-          "name": "PROXY_URL",
-          "label": "URL de Acesso",
-          "description": "URL para acessar o Synesis"
+          "name": "GTEC_DELEGATED_DOMAIN",
+          "label": "Domínio delegado Gerenciatec",
+          "description": ""
 			  }
       ]
     }   

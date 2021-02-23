@@ -9,10 +9,12 @@ services:
       - gerenciatec-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.synesis.rule=Host(`${PROXY_URL}`) || PathPrefix(`/synesis`)"
+      - "traefik.http.routers.synesis.rule=Host(`syslog.${GTEC_DELEGATED_DOMAIN}`) || PathPrefix(`/syslog`)"
+      - "traefik.http.routers.synesis.tls=true"
+      - "traefik.http.routers.synesis.tls.certresolver=myresolver"
       - "traefik.http.routers.synesis.middlewares=synesis-stripprefix,synesis-auth"
-      - "traefik.http.middlewares.synesis-stripprefix.stripprefix.prefixes=/synesis"
-      - "traefik.http.middlewares.synesis-auth.basicauth.users=gtec:$$apr1$$Iqe9MT.2$$RaZP0TTtIcAIGNXsbohnB."
+      - "traefik.http.middlewares.synesis-stripprefix.stripprefix.prefixes=/syslog"
+      - "traefik.http.middlewares.synesis-auth.basicauth.users=admin:$$apr1$$yDbQpTMi$$.WY390fKGUi./DBTogc1l/"
     environment:
       SERVER_HOST: 0.0.0.0
       SERVER_PORT: 5601
