@@ -30,13 +30,13 @@ services:
       PDNS_API_KEY: "paDUbL8t4ytpp2Kx4t550eN4"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.rproxy.rule=Host(`dash.${GTEC_DELEGATED_DOMAIN}`) || PathPrefix(`/api`) || PathPrefix(`/dash/`)"
-      - "traefik.http.routers.rproxy.tls=true"
-      - "traefik.http.routers.rproxy.tls.certresolver=myresolver"
-      - "traefik.http.services.rproxy.loadbalancer.server.port=8080"
-      - "traefik.http.routers.rproxy.service=api@internal"
-      - "traefik.http.routers.rproxy.middlewares=rproxy-auth"
-      - "traefik.http.middlewares.rproxy-auth.basicauth.users=gtec:$$apr1$$rkiK56dj$$z4GlaHm5DRiEMGMUpNVAr1"
+      - "traefik.http.routers.webproxy.rule=Host(`webproxy.${GTEC_DELEGATED_DOMAIN}`) || PathPrefix(`/api`) || PathPrefix(`/webproxy/`)"
+      - "traefik.http.routers.webproxy.tls=true"
+      - "traefik.http.routers.webproxy.tls.certresolver=myresolver"
+      - "traefik.http.services.webproxy.loadbalancer.server.port=8080"
+      - "traefik.http.routers.webproxy.service=api@internal"
+      - "traefik.http.routers.webproxy.middlewares=webproxy-auth"
+      - "traefik.http.middlewares.webproxy-auth.basicauth.users=admin:$$apr1$$yDbQpTMi$$.WY390fKGUi./DBTogc1l/"
 
   powerdns:
     image: hub.gerenciatec.com.br/powerdns:latest
