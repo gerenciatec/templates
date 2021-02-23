@@ -14,9 +14,9 @@
       },
       "env": [
         {
-          "name": "GTEC_DOMAIN",
-          "label": "Domínio local Gerenciatec",
-          "description": "Domínio local Gerenciatec"
+          "name": "GTEC_DELEGATED_DOMAIN",
+          "label": "Domínio delegado Gerenciatec",
+          "description": "Domínio delegado Gerenciatec"
 			  },
         {
           "name": "HOST_IP",
@@ -25,8 +25,8 @@
 			  },
         {
           "name": "GTEC_HOST_DOMAIN",
-          "label": "Domínio do host local Gerenciatec",
-          "description": "Domínio do host local Gerenciatec"
+          "label": "Domínio do host local",
+          "description": "Domínio do host local"
 			  }                
       ]      
     },
