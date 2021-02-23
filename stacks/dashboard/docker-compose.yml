@@ -49,6 +49,7 @@ services:
       - "${HOST_IP}:53:53/tcp"
     environment:
       GTEC_DOMAIN: "${GTEC_DOMAIN}"
+      GTEC_HOST_DOMAIN: "${GTEC_HOST_DOMAIN}"
       HOST_IP: "${HOST_IP}"
 
 networks:
