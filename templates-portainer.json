@@ -43,9 +43,9 @@
       },
       "env": [
         {
-          "name": "PROXY_URL",
-          "label": "URL de Acesso",
-          "description": "URL para acessar o Elastiflow"
+          "name": "GTEC_DELEGATED_DOMAIN",
+          "label": "Domínio delegado Gerenciatec",
+          "description": ""
 			  }
       ]
     },

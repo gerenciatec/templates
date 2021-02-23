@@ -9,7 +9,9 @@ services:
       - gerenciatec-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.elastiflow.rule=Host(`${PROXY_URL}`) || PathPrefix(`/elastiflow`)"
+      - "traefik.http.routers.elastiflow.rule=Host(`flow.${GTEC_DELEGATED_DOMAIN}`) || PathPrefix(`/flow`)"
+      - "traefik.http.routers.elastiflow.tls=true"
+      - "traefik.http.routers.elastiflow.tls.certresolver=myresolver"
       - "traefik.http.routers.elastiflow.middlewares=elastiflow-stripprefix,elastiflow-auth"
       - "traefik.http.middlewares.elastiflow-stripprefix.stripprefix.prefixes=/elastiflow"
       - "traefik.http.middlewares.elastiflow-auth.basicauth.users=gtec:$$apr1$$Iqe9MT.2$$RaZP0TTtIcAIGNXsbohnB."
