@@ -4,7 +4,7 @@
 
     {
       "type": 3,
-      "title": "Dashboard",
+      "title": "dashboard",
       "description": "Dashboard",
       "note": "Deploy do servidor WEB reverso",
       "platform": "linux",
@@ -33,7 +33,7 @@
 
     {
       "type": 3,
-      "title": "Elastiflow",
+      "title": "elastiflow",
       "description": "Servidor Elastiflow",
       "note": "Deploy do servidor de Flows",
       "platform": "linux",
@@ -52,7 +52,7 @@
     
     {
       "type": 3,
-      "title": "Synesis",
+      "title": "synesis",
       "description": "Servidor Synesis",
       "note": "Deploy do servidor de syslog",
       "platform": "linux",
