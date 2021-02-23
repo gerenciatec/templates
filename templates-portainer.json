@@ -22,7 +22,12 @@
           "name": "HOST_IP",
           "label": "IP do Host",
           "description": "IP para exposição externa dos serviços"
-			  }        
+			  },
+        {
+          "name": "GTEC_HOST_DOMAIN",
+          "label": "Domínio do host local Gerenciatec",
+          "description": "Domínio do host local Gerenciatec"
+			  }                
       ]      
     },
 
