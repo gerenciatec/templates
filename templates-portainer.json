@@ -16,7 +16,7 @@
         {
           "name": "GTEC_DELEGATED_DOMAIN",
           "label": "Domínio delegado Gerenciatec",
-          "description": "Domínio delegado Gerenciatec"
+          "description": ""
 			  },
         {
           "name": "HOST_IP",
@@ -26,7 +26,7 @@
         {
           "name": "GTEC_HOST_DOMAIN",
           "label": "Domínio do host local",
-          "description": "Domínio do host local"
+          "description": ""
 			  }                
       ]      
     },

@@ -13,7 +13,7 @@ services:
       - "traefik.http.routers.synesis.tls=true"
       - "traefik.http.routers.synesis.tls.certresolver=myresolver"
       - "traefik.http.routers.synesis.middlewares=synesis-stripprefix,synesis-auth"
-      - "traefik.http.middlewares.synesis-stripprefix.stripprefix.prefixes=/syslog"
+      - "traefik.http.middlewares.synesis-stripprefix.stripprefix.prefixes=/synesis"
       - "traefik.http.middlewares.synesis-auth.basicauth.users=admin:$$apr1$$yDbQpTMi$$.WY390fKGUi./DBTogc1l/"
     environment:
       SERVER_HOST: 0.0.0.0
