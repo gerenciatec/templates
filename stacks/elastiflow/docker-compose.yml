@@ -79,37 +79,6 @@ services:
     environment:
       FILTERTYPE_PATTERN_VALUE: "elastiflow-"
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.0
-    container_name: elasticsearch
-    restart: unless-stopped
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - gerenciatec-network
-    environment:
-      # JVM Heap size
-      #   - this should be at least 2GB for simple testing, receiving only a few flows per second.
-      #   - for production environments upto 31GB is recommended.
-      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
-
-      TZ: "America/Sao_Paulo"
-
-      cluster.name: gerenciatec
-
-      bootstrap.memory_lock: "true"
-
-      network.host: 0.0.0.0
-      http.port: 9200
-      discovery.type: "single-node"
-
-      indices.query.bool.max_clause_count: 8192
-      search.max_buckets: 100000
-
-      action.destructive_requires_name: "true"
-
 networks:
   gerenciatec-network:
     external: true

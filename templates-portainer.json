@@ -49,6 +49,18 @@
 			  }
       ]
     },
+
+    {
+      "type": 3,
+      "title": "elasticsearch",
+      "description": "Servidor Elasticsearch",
+      "note": "Deploy do servidor Elasticsearch",
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gerenciatec/templates/",
+        "stackfile": "stacks/elasticsearch/docker-compose.yml"
+      }
+    },
     
     {
       "type": 3,
