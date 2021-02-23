@@ -21,7 +21,7 @@
         {
           "name": "HOST_IP",
           "label": "IP do Host",
-          "description": "IP para exposição dos externa dos serviços"
+          "description": "IP para exposição externa dos serviços"
 			  }        
       ]      
     },
