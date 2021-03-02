@@ -6,8 +6,8 @@ services:
     container_name: proftpd
     restart: "unless-stopped"
     ports:
-      - 21:21
       - 30091-30100:30091-30100
+      - 21:21/tcp
     networks:
       - gerenciatec-network
     environment:
