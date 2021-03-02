@@ -79,7 +79,38 @@
           "description": ""
 			  }
       ]
-    }   
+    }
+
+    {
+      "type": 3,
+      "title": "proftpd",
+      "description": "Servidor Proftpd",
+      "note": "Deploy do servidor de ftp",
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gerenciatec/templates/",
+        "stackfile": "stacks/proftpd/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "FTP_DOMAIN",
+          "label": "Domínio do servidor",
+          "description": ""
+			  },
+
+        {
+          "name": "FTP_USER",
+          "label": "Usuário de Autenticação",
+          "description": ""
+			  },
+
+        {
+          "name": "FTP_PASSWD",
+          "label": "Senha de Autenticação",
+          "description": ""
+			  }
+      ]
+    } 
 
   ]
 }

@@ -1,0 +1,20 @@
+version: "3.2"
+
+services:
+  proftpd:
+    image: hub.gerenciatec.com.br/proftpd:latest
+    container_name: proftpd
+    restart: "unless-stopped"
+    ports:
+      - 21:21
+      - 30091-30100:30091-30100
+    networks:
+      - gerenciatec-network
+    environment:
+      HOST_ADDRESS: ${FTP_DOMAIN}
+      FTP_USER: ${FTP_USER}
+      FTP_PASSWD: ${FTP_PASSWD}
+
+networks:
+  gerenciatec-network:
+    external: true
